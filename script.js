@@ -1,40 +1,44 @@
-let weight = document.querySelector('#weight'),
-    vol = document.querySelector('#vol'),
-    btn = document.querySelector('#btn'),
-    out = document.querySelector('#out'),
-    load = document.querySelector('#load'),
-    del = document.querySelector('#del'),
-    frag = document.querySelector('#frag'),
-    range = document.querySelector('#range'),
-    distance = document.querySelector('.distance').innerHTML = 500;
-    kg = 5.5,
-    kub = 3500,
-    km = 2;
-// range 
-range.onchange = function(){
+let weight = document.querySelector('#weight');
+let vol = document.querySelector('#vol');
+let btn = document.querySelector('#btn');
+let out = document.querySelector('#out');
+let load = document.querySelector('#load');
+let del = document.querySelector('#del');
+let frag = document.querySelector('#frag');
+let range = document.querySelector('#range');
+let distance = document.querySelector('.distance').innerHTML = 500;
+let kg = 5.5;
+let kub = 3500;
+let km = 2;
+
+//console.log (distance);
+
+//range
+range.onchange = function() {
     document.querySelector('.distance').innerHTML = range.value;
 }
-// function
-btn.onclick = function(){
-    if (weight.value !=" "  && vol.value !=" "){
+//function
+btn.onclick = function() {
+    if (weight.value !="" && vol.value !="") {
         if (load.checked){
             load.value = 1500;
-        }else{
+        } else {
             load.value = 0;
         }
-        if(del.checked){
+        if (del.checked) {
             del.value = 3500;
-        }else{
+        } else {
             del.value = 0;
         }
-        if(frag.checked){
+        if (frag.checked) {
             frag.value = 2000;
-        }else{
+        } else {
             frag.value = 0;
         }
         let sum = (weight.value * kg) + (vol.value * kub) + Number(load.value) + Number(del.value) + Number(frag.value) + (range.value * km);
         out.innerHTML = sum;
-    }else{
+
+    } else {
         alert('Введите вес и объем груза');
     }
 }
